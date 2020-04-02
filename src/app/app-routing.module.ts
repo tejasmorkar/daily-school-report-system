@@ -1,15 +1,46 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "dashboard/",
+    pathMatch: "full"
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: "login",
+    loadChildren: () =>
+      import("./login/login.module").then(m => m.LoginPageModule)
+  },
+  {
+    path: "dashboard",
+    loadChildren: () =>
+      import("./dashboard/dashboard.module").then(m => m.DashboardPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "classes",
+    loadChildren: () =>
+      import("./classes/classes.module").then(m => m.ClassesPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "teachers",
+    loadChildren: () =>
+      import("./teachers/teachers.module").then(m => m.TeachersPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "settings",
+    loadChildren: () =>
+      import("./settings/settings.module").then(m => m.SettingsPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "**",
+    redirectTo: "dashboard",
+    pathMatch: "full"
   }
 ];
 

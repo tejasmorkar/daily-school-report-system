@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/classes/class/{{classId}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Attendance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-item>
+        <ion-label>Attendance Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Select Date" (ionChange)="dateSelected($event)"
+          [value]="todaysDate">
+        </ion-datetime>
+      </ion-item>
+    </ion-list-header>
+    <ion-item-divider></ion-item-divider>
+    <ion-item *ngFor="let i of attendanceList">
+      <ion-label>{{i.name}}</ion-label>
+      <ion-toggle [(ngModel)]="i.attendance" (ionChange)="attendanceMarked($event)" [disabled]="isDisabled">
+      </ion-toggle>
+    </ion-item>
+    <ion-button expand="block" [disabled]="isDisabled" (click)="update()">
+      <ion-label>Update</ion-label>
+    </ion-button>
+  </ion-list>
+</ion-content>

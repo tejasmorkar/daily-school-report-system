@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/teachers"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Teacher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">
+            Name
+          </ion-label>
+          <ion-input [(ngModel)]="name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">
+            Teacher Id
+          </ion-label>
+          <ion-input [(ngModel)]="teacherId"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">
+            Class
+          </ion-label>
+          <ion-input [(ngModel)]="class"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">
+            Designation
+          </ion-label>
+          <ion-select [(ngModel)]="designation" okText="Okay" cancelText="Dismiss" (ionChange)="onDesignationSelect()">
+            <ion-select-option value="Graduate Teacher">Graduate Teacher</ion-select-option>
+            <ion-select-option value="Assistant Teacher">Assistant Teacher</ion-select-option>
+            <ion-select-option value="Headmaster">Headmaster</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">
+            Attendance
+          </ion-label>
+          <ion-input [(ngModel)]="attendance" inputmode="numeric"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="4">
+        <ion-button (click)="onAddButtonClick()" expand="block">
+          <ion-label>Add</ion-label>
+          <ion-icon name="add-circle" slot="end"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

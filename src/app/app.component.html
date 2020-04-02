@@ -3,11 +3,24 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+
+          <ion-item class="ion-padding-bottom">
+            <ion-avatar slot="start">
+              <ion-img [src]="photoURL"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              {{userEmail}}
+            </ion-label>
+          </ion-item>
+
+          <ion-list-header>
+            Zilla Parishad
+          </ion-list-header>
+          <ion-note>Daily School Report System</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+              detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
@@ -15,11 +28,17 @@
         </ion-list>
 
         <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+          <ion-list-header>Extras</ion-list-header>
+          <a href="https://api.whatsapp.com/send?phone=918421631063&text=*Feedback+for+Daily+School+Report+System*%0D%0A%0D%0A%3E%20&source=&data="
+            style="text-decoration: none;">
+            <ion-item lines="none" detail="false">
+              <ion-icon slot="start" name="send" ios="send-outline" md="send-sharp"></ion-icon>
+              <ion-label>Send Feedback</ion-label>
+            </ion-item>
+          </a>
+          <ion-item lines="none" detail="false" (click)="logOut()">
+            <ion-icon slot="start" name="log-out" ios="log-out-outline" md="log-out-sharp"></ion-icon>
+            <ion-label>Log Out</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Authentication
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-img
+          src="../../assets/icon/undraw_Login_v483.svg"
+          style="height: 25vh;"
+        ></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" style="text-align: center;">
+        <ion-item lines="none">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" style="text-align: center;">
+        <ion-item lines="none">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="4">
+        <ion-button (click)="onLoginSubmit()" expand="block">
+          <ion-label>Login</ion-label>
+          <ion-icon name="log-in" slot="end"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button (click)="resetPassword()" expand="block" fill="none">
+          <ion-label>Reset Password</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button (click)="createNewAcc()" expand="block" fill="none">
+          <ion-label>Create New Account</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

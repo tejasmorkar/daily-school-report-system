@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/teachers"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{teacherId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Select Date" (ionChange)="dateSelected($event)"
+          [value]="todaysDate">
+        </ion-datetime>
+      </ion-item>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Attendance</ion-label>
+      <ion-toggle [(ngModel)]="attendance" (ionChange)="onAttendanceToggle($event)" [disabled]="isDisabled">
+      </ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Lesson Plan</ion-label>
+      <ion-toggle [(ngModel)]="lessonPlan" (ionChange)="onLessonPlanToggle($event)" [disabled]="isDisabled">
+      </ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Day Book</ion-label>
+      <ion-toggle [(ngModel)]="dayBook" (ionChange)="onDayBookToggle($event)" [disabled]="isDisabled">
+      </ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Assembly Participation</ion-label>
+      <ion-toggle [(ngModel)]="assemblyParticipation" (ionChange)="onAssemblyParticipationToggle($event)"
+        [disabled]="isDisabled">
+      </ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Other Activities</ion-label>
+      <ion-toggle [(ngModel)]="otherActivities" (ionChange)="onOtherActivitiesToggle($event)" [disabled]="isDisabled">
+      </ion-toggle>
+    </ion-item>
+    <ion-item [hidden]="!otherActivities">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-item *ngFor="let activity of activities">
+                <ion-icon name="close-outline" slot="start" (click)="onActivityRemove(activity)"></ion-icon>
+                <ion-text>{{activity}}</ion-text>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center ion-align-items-center">
+          <ion-col size="9">
+            <ion-item>
+              <ion-label position="stacked">Add Activity</ion-label>
+              <ion-input [(ngModel)]="activityInput"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="none" (click)="onActivityAdd(activityInput)">
+              <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-button expand="block" [disabled]="isDisabled" (click)="update()">
+      <ion-label>Update</ion-label>
+    </ion-button>
+  </ion-list>
+</ion-content>

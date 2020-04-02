@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/classes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Class {{classId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card routerLink="/classes/class/{{classId}}/attendance/{{classId}}" routerDirection="forward">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <!-- <ion-label>Daily</ion-label> -->
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-label>Attendance</ion-label>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>Today's Attendance</ion-label>
+            <br>
+            <ion-chip>{{ 24 }}</ion-chip>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card routerLink="/classes/class/{{classId}}/student-list/{{classId}}" routerDirection="forward">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <!-- <ion-label>Class</ion-label> -->
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-label>Student List</ion-label>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>Total Students</ion-label>
+            <br>
+            <ion-chip>{{ 30 }}</ion-chip>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card routerLink="/classes/class/{{classId}}/tests/{{classId}}" routerDirection="forward">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <!-- <ion-label>Class</ion-label> -->
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-label>Tests</ion-label>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>Tests Available</ion-label>
+            <br>
+            <ion-chip>{{ 2 }}</ion-chip>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card routerLink="/classes/class/{{classId}}/result/{{classId}}" routerDirection="forward">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <!-- <ion-label>Academic</ion-label> -->
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-label>Result</ion-label>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>Average Score</ion-label>
+            <br>
+            <ion-chip>{{ 87 }}%</ion-chip>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
