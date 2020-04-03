@@ -42,6 +42,10 @@ export class AddTeacherPage implements OnInit {
   }
 
   onAddButtonClick() {
+    this.name.trim;
+    this.teacherId.trim;
+    this.class.trim;
+    this.designation.trim;
     if (
       this.name &&
       this.teacherId &&

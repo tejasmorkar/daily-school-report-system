@@ -1,0 +1,8 @@
+{
+  "appId": "com.devscollab.dailyschollreportsystem",
+  "appName": "Daily Report",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

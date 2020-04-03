@@ -19,7 +19,7 @@
     </ion-list-header>
     <ion-item>
       <ion-label>Attendance</ion-label>
-      <ion-toggle [(ngModel)]="attendance" (ionChange)="onAttendanceToggle($event)" [disabled]="isDisabled">
+      <ion-toggle [(ngModel)]="attendance" (click)="onAttendanceToggle($event)" [disabled]="isDisabled">
       </ion-toggle>
     </ion-item>
     <ion-item>

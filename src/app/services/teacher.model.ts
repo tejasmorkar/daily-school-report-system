@@ -1,7 +1,7 @@
 export interface Teacher {
   name: string;
   teacherId: string;
-  class?: string;
+  class: string;
   designation: string;
-  attendance?: number;
+  attendance: number;
 }
